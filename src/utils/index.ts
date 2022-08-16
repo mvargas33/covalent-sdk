@@ -1,5 +1,6 @@
 import { API_URL } from "../constants";
 import { CovalentAPIBaseResponse, CovalentFetchOptions, CovalentParameters } from "../models";
+import fetch from "node-fetch";
 
 export async function fetchFromCovalent(options: CovalentFetchOptions) {
   const { key, path, parameters } = options;
@@ -7,6 +8,7 @@ export async function fetchFromCovalent(options: CovalentFetchOptions) {
   const queryString = buildQueryString({ ...parameters, key });
 
   const url = `${API_URL}/${version}/${path}/?${queryString}`;
+  console.log(url);
 
   try {
     const response = await fetch(url);

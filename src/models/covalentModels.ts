@@ -148,6 +148,16 @@ export interface BlockTransactionWithLogEvents {
   log_events: LogEventItem[];
 }
 
+export interface TransactionsResponse {
+  address: string;
+  updated_at: string;
+  next_update_at: string;
+  quote_currency: string;
+  chain_id: number;
+  items: BlockTransactionWithLogEvents[];
+  pagination: AppliedPagination | null;
+}
+
 export interface SingleTransactionResponse {
   updated_at: string;
   items: BlockTransactionWithLogEvents[];
